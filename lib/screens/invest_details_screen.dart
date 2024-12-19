@@ -8,17 +8,16 @@ class InvestDetailsScreen extends StatefulWidget {
   @override
   State<InvestDetailsScreen> createState() => _InvestDetailsScreenState();
 }
-
 class _InvestDetailsScreenState extends State<InvestDetailsScreen> {
-  String? _selectedLabel; // Track the selected container
+  String? _selectedLabel;
 
   Widget _buildSelectableContainer(String label) {
-    final bool isSelected = _selectedLabel == label; // Check if selected
+    final bool isSelected = _selectedLabel == label;
 
     return GestureDetector(
       onTap: () {
         setState(() {
-          _selectedLabel = label; // Update selected label
+          _selectedLabel = label;
         });
       },
       child: Container(
@@ -26,10 +25,10 @@ class _InvestDetailsScreenState extends State<InvestDetailsScreen> {
         margin: const EdgeInsets.only(top: 22),
         decoration: BoxDecoration(
           color: AppColors.lightGrey,
-          borderRadius: BorderRadius.circular(16), // Rounded corners
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Text(
-          label.replaceAll("₦", "\u20A6"), // Ensure ₦ symbol renders correctly
+          label.replaceAll("₦", "\u20A6"),
           style: TextStyle(
             color: isSelected ? AppColors.lightGrey2 : AppColors.blackColor2,
             fontWeight: FontWeight.bold,
@@ -129,7 +128,7 @@ class _InvestDetailsScreenState extends State<InvestDetailsScreen> {
                           ),
                           const SizedBox(height: 40),
 
-                          // Selectable Containers
+
                           Wrap(
                             spacing: 22,
                             children: [
@@ -235,17 +234,14 @@ class _InvestDetailsScreenState extends State<InvestDetailsScreen> {
 
 Widget _buildCustomTextField(
     {required String labelText, bool isObscured = false}) {
-  // FocusNode to track the focus state
   FocusNode focusNode = FocusNode();
 
-  // Set initial fill color
   Color currentFillColor = Colors.white;
   return Focus(
     onFocusChange: (hasFocus) {
       currentFillColor = hasFocus
-          // ? Color(0xFF999999).withOpacity(0.05)
-          ? Colors.black
-          : Colors.white; // Default color when not focused
+          ? Color(0xFF999999).withOpacity(0.05)
+          : Colors.white;
     },
     child: TextField(
       obscureText: isObscured,

@@ -107,9 +107,9 @@ class _InvestScreenState extends State<InvestScreen> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new), // Back arrow icon
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.pop(context); // Navigate back to the previous screen
+            Navigator.pop(context);
           },
         ),
       ),
@@ -145,7 +145,7 @@ class _InvestScreenState extends State<InvestScreen> {
                       fontSize: 17,
                       fontFamily: "Karla",
                       fontWeight: FontWeight.w500,
-                      color: AppColors.greenColor, // Highlighted part
+                      color: AppColors.greenColor,
                     ),
                   ),
                 ],
@@ -153,16 +153,15 @@ class _InvestScreenState extends State<InvestScreen> {
             ),
             const SizedBox(height: 10),
 
-            // Search input field with dynamic background color
             Container(
               decoration: BoxDecoration(
                 color: _isTyping
-                    ? Colors.lightBlue.shade50 // Background color when typing
-                    : Colors.grey.shade200, // Background color when not typing
+                    ? Colors.lightBlue.shade50
+                    : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(
                   color: _focusNode.hasFocus
-                      ? Colors.blue // Border color when focused
+                      ? Colors.blue
                       : Colors.grey.shade400,
                 ),
               ),
@@ -175,7 +174,7 @@ class _InvestScreenState extends State<InvestScreen> {
                     color: Colors.grey.shade600,
                   ),
                   prefixIcon: const Icon(Icons.search),
-                  border: InputBorder.none, // Remove default border
+                  border: InputBorder.none,
                   contentPadding: const EdgeInsets.all(16.0),
                 ),
               ),
@@ -189,9 +188,9 @@ class _InvestScreenState extends State<InvestScreen> {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                         color: AppColors.borderColor,
-                        width: 1.0), // Add border color and width
+                        width: 1.0),
                     borderRadius: BorderRadius.all(
-                        Radius.circular(8)), // Adjust border radius if needed
+                        Radius.circular(8)),
                   ),
                   label: Text(
                     AppTexts.product1,
@@ -259,10 +258,10 @@ class _InvestScreenState extends State<InvestScreen> {
               child: GridView.builder(
                 scrollDirection: Axis.horizontal,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Number of columns
-                  crossAxisSpacing: 16.0, // Horizontal spacing between items
-                  mainAxisSpacing: 30.0, // Vertical spacing between items
-                  childAspectRatio: 0.6, // Aspect ratio of each item
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 30.0,
+                  childAspectRatio: 0.6,
                 ),
                 itemCount: investments.length,
                 itemBuilder: (context, index) {
